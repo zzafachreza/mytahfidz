@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "382888487365",
+    "project_id": "my-tahfidz",
+    "storage_bucket": "my-tahfidz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382888487365:android:2f3a7325f014bb1ddac3ac",
+        "android_client_info": {
+          "package_name": "com.mytahfidz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382888487365-t9rn628a9qi9a3lq74o6na886ln9gm90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdLv4j-6BZ_uLcrX84htSTO1_KIoNw9n4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382888487365-t9rn628a9qi9a3lq74o6na886ln9gm90.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
