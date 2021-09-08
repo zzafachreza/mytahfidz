@@ -27,6 +27,17 @@ import Hadiah from './Hadiah';
 import Redeem from './Redeem';
 import ListRedeem from './ListRedeem';
 import Jadwal from './Jadwal';
+
+import Daftar from './Daftar';
+import Info from './Info';
+import Tahsin from './Tahsin';
+import Beasiswa from './Beasiswa';
+
+import Zakat from './Zakat';
+import Waqaf from './Waqaf';
+import Buku from './Buku';
+import Gallery from './Gallery';
+
 export {
   Splash,
   GetStarted,
@@ -57,4 +68,12 @@ export {
   Hadiah,
   Redeem,
   ListRedeem,
+  Daftar,
+  Info,
+  Tahsin,
+  Beasiswa,
+  Zakat,
+  Waqaf,
+  Buku,
+  Gallery,
 };

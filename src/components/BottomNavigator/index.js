@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
+  Linking,
   Dimensions,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
@@ -18,7 +19,7 @@ export default function BottomNavigator({state, descriptors, navigation}) {
   }
 
   return (
-    <View style={{flexDirection: 'row', backgroundColor: 'white'}}>
+    <View style={{backgroundColor: colors.primary, flexDirection: 'row'}}>
       {state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
         const label =
@@ -55,12 +56,14 @@ export default function BottomNavigator({state, descriptors, navigation}) {
           iconName = 'home-outline';
         } else if (label === 'Account') {
           iconName = 'person-outline';
-        } else if (label === 'Transaksi') {
-          iconName = 'newspaper-outline';
-        } else if (label === 'ListRedeem') {
-          iconName = 'bookmarks-outline';
+        } else if (label === 'Laporan') {
+          iconName = 'grid-outline';
+        } else if (label === 'ChatWa') {
+          iconName = 'chatbubbles-outline';
         } else if (label === 'Cart') {
           iconName = 'cart';
+        } else if (label === 'Pesanan') {
+          iconName = 'cube-outline';
         }
 
         return (
@@ -70,13 +73,19 @@ export default function BottomNavigator({state, descriptors, navigation}) {
             accessibilityStates={isFocused ? ['selected'] : []}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
-            onPress={onPress}
+            onPress={
+              label === 'Chat'
+                ? () =>
+                    Linking.openURL(
+                      'https://api.whatsapp.com/send?phone=6289653763986',
+                    )
+                : onPress
+            }
             onLongPress={onLongPress}
             style={{flex: 1}}>
             <View
               style={{
-                color: isFocused ? colors.primary : '#919095',
-                backgroundColor: isFocused ? 'white' : '#FFFFFF',
+                color: isFocused ? colors.white : '#919095',
                 paddingTop: 5,
                 paddingBottom: 0,
                 fontSize: 12,
@@ -86,51 +95,25 @@ export default function BottomNavigator({state, descriptors, navigation}) {
               }}>
               <View
                 style={{
-                  position: iconName === 'cart' ? 'absolute' : 'relative',
-                  backgroundColor:
-                    iconName === 'cart' ? colors.secondary : 'white',
-                  // borderTopWidth: iconName === 'cart' && isFocused ? 5 : 0,
-                  borderWidth: 3,
-                  // borderColor: 'red',
-                  // padding: 10,
-                  // position: 'absolute',
-                  position: iconName === 'cart' ? 'absolute' : 'relative',
-                  borderColor: iconName === 'cart' ? 'white' : 'white',
-                  borderRadius: iconName === 'cart' ? 50 : 0,
-                  width: iconName === 'cart' ? 90 : 80,
-                  marginBottom: iconName === 'cart' ? 0 : 0,
-                  bottom: iconName === 'cart' ? -45 : 0,
-                  height: iconName === 'cart' ? 90 : 50,
+                  width: 80,
+                  bottom: 0,
+                  height: 50,
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>
-                {iconName === 'cart' ? (
-                  <Icon
-                    name={iconName}
-                    type="ionicon"
-                    color={isFocused ? colors.primary : 'white'}
-                  />
-                ) : (
-                  <Icon
-                    name={iconName}
-                    type="ionicon"
-                    size={windowWidth / 20}
-                    color={isFocused ? colors.primary : '#919095'}
-                  />
-                )}
+                <Icon
+                  name={isFocused ? iconName.replace('-outline', '') : iconName}
+                  type="ionicon"
+                  size={windowWidth / 20}
+                  color={isFocused ? colors.white : colors.white}
+                />
+
                 <Text
                   style={{
                     fontSize: windowWidth / 45,
-                    color:
-                      isFocused && iconName == 'cart'
-                        ? 'cart'
-                        : !isFocused && iconName == 'cart'
-                        ? 'white'
-                        : isFocused
-                        ? colors.primary
-                        : '#919095',
+                    color: isFocused ? colors.white : colors.white,
                   }}>
-                  {/* {label == 'ListRedeem' ? 'Redeem' : label} */}
+                  {label == 'ChatWa' ? 'Chat' : label}
                 </Text>
               </View>
             </View>

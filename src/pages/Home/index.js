@@ -66,9 +66,10 @@ export default function Home({navigation}) {
     });
   };
 
-  const DataKategori = ({icon, nama}) => {
+  const DataKategori = ({icon, nama, onPress}) => {
     return (
-      <View
+      <TouchableOpacity
+        onPress={onPress}
         style={{
           backgroundColor: colors.white,
           padding: 5,
@@ -95,7 +96,7 @@ export default function Home({navigation}) {
             {nama}
           </Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -188,16 +189,16 @@ export default function Home({navigation}) {
             <View
               style={{
                 backgroundColor: 'red',
-                width: 100,
-                height: 100,
+                width: windowWidth / 5,
+                height: windowWidth / 5,
                 borderRadius: 50,
                 overflow: 'hidden',
               }}>
               <Image
                 source={require('../../assets/logo.png')}
                 style={{
-                  width: 100,
-                  height: 100,
+                  width: windowWidth / 5,
+                  height: windowWidth / 5,
                 }}
               />
             </View>
@@ -208,61 +209,8 @@ export default function Home({navigation}) {
 
         <View
           style={{
-            paddingTop: 10,
-            paddingHorizontal: 10,
-            backgroundColor: colors.white,
-            paddingBottom: 10,
-          }}>
-          <TouchableNativeFeedback
-            onPress={() => navigation.navigate('Search')}>
-            <View
-              style={{
-                flex: 1,
-                paddingLeft: 20,
-                borderWidth: 1,
-                height: 45,
-                borderRadius: 10,
-                borderColor: colors.black,
-                color: colors.black,
-                flexDirection: 'row',
-                fontSize: 18,
-                justifyContent: 'center',
-              }}>
-              <View
-                style={{
-                  flex: 2,
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{
-                    fontFamily: fonts.secondary[400],
-                    fontSize: 18,
-                    color: colors.black,
-                  }}>
-                  Pencarian...
-                </Text>
-              </View>
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: 'center',
-                  alignItems: 'flex-end',
-                  paddingRight: 20,
-                }}>
-                <Icon
-                  type="font-awesome"
-                  name="search"
-                  color={colors.black}
-                  size={18}
-                />
-              </View>
-            </View>
-          </TouchableNativeFeedback>
-        </View>
-        <View
-          style={{
             padding: 10,
-            backgroundColor: colors.primary,
+            backgroundColor: colors.white,
           }}>
           <View
             style={{
@@ -273,7 +221,7 @@ export default function Home({navigation}) {
             <Text
               style={{
                 fontFamily: fonts.secondary[600],
-                color: colors.white,
+                color: colors.black,
                 fontSize: windowWidth / 25,
               }}>
               Markaz Tahfidz Roudhotul Muhibbin
@@ -307,10 +255,26 @@ export default function Home({navigation}) {
               justifyContent: 'space-between',
               marginTop: 15,
             }}>
-            <DataKategori icon="bookmarks" nama="Pendaftaran Santri" />
-            <DataKategori icon="information-circle" nama="Informasi Santri" />
-            <DataKategori icon="logo-youtube" nama="Tahsin Online" />
-            <DataKategori icon="grid" nama="Beasiswa Santri" />
+            <DataKategori
+              onPress={() => navigation.navigate('Daftar')}
+              icon="bookmarks"
+              nama="Pendaftaran Santri"
+            />
+            <DataKategori
+              onPress={() => navigation.navigate('Info')}
+              icon="information-circle"
+              nama="Informasi"
+            />
+            <DataKategori
+              onPress={() => navigation.navigate('Tahsin')}
+              icon="logo-youtube"
+              nama="Tahsin Online"
+            />
+            <DataKategori
+              onPress={() => navigation.navigate('Beasiswa')}
+              icon="grid"
+              nama="Beasiswa Pendidikan"
+            />
           </View>
           <View
             style={{
@@ -318,10 +282,26 @@ export default function Home({navigation}) {
               justifyContent: 'space-between',
               marginTop: 15,
             }}>
-            <DataKategori icon="wallet" nama="Zakat Infaq Shodaqoh" />
-            <DataKategori icon="cube" nama="Waqaf Tahfidz" />
-            <DataKategori icon="download" nama="Download E-book" />
-            <DataKategori icon="images" nama="Gallery Tahfidz" />
+            <DataKategori
+              onPress={() => navigation.navigate('Zakat')}
+              icon="wallet"
+              nama="Zakat Infaq Shodaqoh"
+            />
+            <DataKategori
+              onPress={() => navigation.navigate('Waqaf')}
+              icon="cube"
+              nama="Waqaf Pembangunan"
+            />
+            <DataKategori
+              onPress={() => navigation.navigate('Buku')}
+              icon="download"
+              nama="Download E-book"
+            />
+            <DataKategori
+              onPress={() => navigation.navigate('Gallery')}
+              icon="images"
+              nama="Gallery Tahfidz"
+            />
           </View>
         </View>
       </ScrollView>

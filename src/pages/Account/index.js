@@ -31,7 +31,6 @@ export default function Account({navigation}) {
       // source={require('../../assets/back.jpeg')}
       style={{
         flex: 1,
-        backgroundColor: colors.primary,
       }}>
       <View
         style={{

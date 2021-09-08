@@ -38,10 +38,18 @@ import {
   Redeem,
   ListRedeem,
   Jadwal,
+  Info,
+  Tahsin,
+  Beasiswa,
+  Zakat,
+  Waqaf,
+  Buku,
+  Gallery,
 } from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigator} from '../components';
 import {colors} from '../utils/colors';
+import Daftar from '../pages/Daftar';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -50,8 +58,8 @@ const MainApp = () => {
   return (
     <Tab.Navigator tabBar={props => <BottomNavigator {...props} />}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Transaksi" component={ListData} />
-      <Tab.Screen name="ListRedeem" component={ListRedeem} />
+      {/* <Tab.Screen name="Transaksi" component={ListData} />
+      <Tab.Screen name="ListRedeem" component={ListRedeem} /> */}
       {/* <Tab.Screen name="Cart" component={Cart} /> */}
       {/* <Tab.Screen name="Notifikasi" component={Notifikasi} /> */}
       <Tab.Screen name="Account" component={Account} />
@@ -74,6 +82,110 @@ export default function Router() {
         component={GetStarted}
         options={{
           headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Daftar"
+        component={Daftar}
+        options={{
+          title: 'Pendaftran Online',
+          headerTintColor: '#FFF',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 2, // remove shadow on Android
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="Info"
+        component={Info}
+        options={{
+          title: 'Informasi',
+          headerTintColor: '#FFF',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 2, // remove shadow on Android
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="Tahsin"
+        component={Tahsin}
+        options={{
+          title: 'Tahsin Online',
+          headerTintColor: '#FFF',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 2, // remove shadow on Android
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="Beasiswa"
+        component={Beasiswa}
+        options={{
+          title: 'Beasiswa Pendidikan',
+          headerTintColor: '#FFF',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 2, // remove shadow on Android
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="Zakat"
+        component={Zakat}
+        options={{
+          title: 'Zakat Infaq dan Shodaqoh',
+          headerTintColor: '#FFF',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 2, // remove shadow on Android
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="Waqaf"
+        component={Waqaf}
+        options={{
+          title: 'Waqaf Pembangunan',
+          headerTintColor: '#FFF',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 2, // remove shadow on Android
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="Buku"
+        component={Buku}
+        options={{
+          title: 'E - Book',
+          headerTintColor: '#FFF',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 2, // remove shadow on Android
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="Gallery"
+        component={Gallery}
+        options={{
+          title: 'Gallery Tahfidz',
+          headerTintColor: '#FFF',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 2, // remove shadow on Android
+          },
         }}
       />
 
